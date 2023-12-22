@@ -1,3 +1,7 @@
+# Windows stuff
 configstore
 joplin-desktop
 scdl
+
+# Neovim
+lazy-lock.json
