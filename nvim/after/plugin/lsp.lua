@@ -67,6 +67,10 @@ cmp.setup({
     }
 })
 
+cmp.setup.filetype('norg', {
+    sources = cmp.config.sources({})
+})
+
 lsp.setup()
 
 vim.diagnostic.config({
