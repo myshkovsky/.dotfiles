@@ -8,3 +8,6 @@ scdl
 
 # Neovim
 lazy-lock.json
+
+# Languages
+ghc
