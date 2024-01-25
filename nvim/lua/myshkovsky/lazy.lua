@@ -22,6 +22,11 @@ require('lazy').setup({
             require("neorg").setup {
                 load = {
                     ["core.defaults"] = {},
+                    ["core.keybinds"] = {
+                        config = {
+                            neorg_leader = " "
+                        }
+                    },
                     ["core.integrations.treesitter"] = {},
                     ["core.concealer"] = {
                         config = {

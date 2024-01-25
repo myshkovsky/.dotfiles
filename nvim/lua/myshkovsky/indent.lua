@@ -1,1 +1,1 @@
-vim.cmd('autocmd FileType javascript,javascriptreact,javascript.jsx,typescript,typescriptreact,typescript.tsx setlocal shiftwidth=2 softtabstop=2 tabstop=2')
+vim.cmd('autocmd FileType javascriptreact,javascript.jsx,typescriptreact,typescript.tsx setlocal shiftwidth=2 softtabstop=2 tabstop=2')

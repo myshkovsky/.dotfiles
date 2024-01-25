@@ -6,7 +6,8 @@ lsp.ensure_installed({
     'tailwindcss',
     'lua_ls',
     'sqlls',
-    'gopls'
+    'gopls',
+    'svelte'
 })
 
 lsp.nvim_workspace()
@@ -60,10 +61,10 @@ end)
 
 cmp.setup({
     sources = {
-        { name = 'nvim_lsp', keyword_length = 3, group_index = 0, max_item_count = 50 },
-        { name = 'buffer' },
         { name = 'path' },
-        { name = 'luasnip' },
+        { name = 'nvim_lsp', group_index = 0, max_item_count = 50 },
+        { name = 'luasnip',  keyword_length = 2 },
+        { name = 'buffer',   keyword_length = 3 },
     }
 })
 
