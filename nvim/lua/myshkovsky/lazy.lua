@@ -13,7 +13,13 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 require('lazy').setup({
+    -- Colorschemes
+    {
+        "olimorris/onedarkpro.nvim",
+        priority = 1000
+    },
     "rebelot/kanagawa.nvim",
+    -- Plugins
     {
         "nvim-neorg/neorg",
         build = ":Neorg sync-parsers",
@@ -36,7 +42,7 @@ require('lazy').setup({
                     ["core.dirman"] = {
                         config = {
                             workspaces = {
-                                notes = "C:/Users/myshkovsky/notes",
+                                notes = "%HOMEPATH%/notes",
                             },
                         },
                     },
@@ -57,10 +63,6 @@ require('lazy').setup({
         'nvim-telescope/telescope.nvim',
         tag = '0.1.3',
         dependencies = { { 'nvim-lua/plenary.nvim' } }
-    },
-    {
-        "olimorris/onedarkpro.nvim",
-        priority = 1000 -- Ensure it loads first
     },
     {
         'nvim-treesitter/nvim-treesitter',

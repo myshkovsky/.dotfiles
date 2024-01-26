@@ -2,25 +2,20 @@ local colors = require("onedarkpro.helpers").get_preloaded_colors()
 
 require('onedarkpro').setup({
     colors = {
-        --onedark = { bg = "#15171c" }
+        onedark = { bg = "#1e222a" }
     },
     highlights = {
-        -- .go
-        ['@variable.go'] = { fg = colors.white },
-        ['@parameter.go'] = { fg = colors.white },
-        -- .lua
-        ['@lsp.type.parameter.lua'] = { fg = colors.white },
-        ['@lsp.type.keyword.lua'] = {},
-        -- .js
-        ['@property.javascript'] = { fg = colors.white },
-        ['@variable.javascript'] = { fg = colors.white },
-        ['@punctuation.bracket.javascript'] = { fg = '#179fff' },
-        ['@tag.attribute.javascript'] = { fg = colors.orange },
-        -- .jsx
-        ['@lsp.type.parameter.javascriptreact'] = { fg = colors.white },
-        ['@lsp.typemod.parameter.declaration.javascriptreact'] = { fg = colors.red },
-        ['@lsp.typemod.variable.readonly.javascriptreact'] = { fg = colors.white },
-
+        ['@variable'] = { fg = colors.white },
+        ['@parameter'] = { fg = colors.white },
+        ['@property'] = { fg = colors.cyan },
+        -- Golang
+        ['@variable.go'] = { link = '@variable' },
+        ['@parameter.go'] = { link = '@parameter' },
+        ['@variable.member.go'] = { link = '@property' },
+        -- Lua
+        ['@lsp.type.property.lua'] = { link = '@variable.member' },
+        ['@lsp.typemod.function.defaultLibrary.lua'] = { link = '@keyword.lua' },
+        ['@keyword.operator.lua'] = { link = '@keyword.lua' },
     },
 })
 
