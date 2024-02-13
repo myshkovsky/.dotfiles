@@ -7,6 +7,7 @@ require 'nvim-treesitter.configs'.setup {
         "query",
         "go",
         "gomod",
+        "python",
         -- Web
         "css",
         "scss",

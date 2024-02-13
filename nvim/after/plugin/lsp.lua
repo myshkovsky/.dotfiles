@@ -7,7 +7,8 @@ lsp.ensure_installed({
     'lua_ls',
     'sqlls',
     'gopls',
-    'svelte'
+    'svelte',
+    'pyright'
 })
 
 lsp.nvim_workspace()
