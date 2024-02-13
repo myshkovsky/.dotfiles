@@ -1,51 +1,6 @@
-local lsp = require("lsp-zero").preset("recommended")
+local lsp_zero = require('lsp-zero')
 
-lsp.ensure_installed({
-    'tsserver',
-    'eslint',
-    'tailwindcss',
-    'lua_ls',
-    'sqlls',
-    'gopls',
-    'svelte',
-    'pyright'
-})
-
-lsp.nvim_workspace()
-
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-    ["<C-Space>"] = cmp.mapping.complete(),
-})
-cmp.event:on(
-    'confirm_done',
-    cmp_autopairs.on_confirm_done()
-)
-
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
-
-lsp.setup_nvim_cmp({
-    mapping = cmp_mappings
-})
-
-lsp.set_preferences({
-    suggest_lsp_servers = false,
-})
-
-lsp.set_sign_icons({
-    error = 'E',
-    warn = 'W',
-    hint = 'H',
-    info = 'I'
-})
-
-lsp.on_attach(function(_, bufnr)
+lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -60,20 +15,62 @@ lsp.on_attach(function(_, bufnr)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
+-- to learn how to use mason.nvim with lsp-zero
+-- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
+require('mason').setup({})
+require('mason-lspconfig').setup({
+    ensure_installed = {
+        'tsserver',
+        'eslint',
+        'tailwindcss',
+        'lua_ls',
+        'sqlls',
+        'gopls',
+        'svelte',
+        'pyright'
+    },
+    handlers = {
+        lsp_zero.default_setup,
+        lua_ls = function()
+            local lua_opts = lsp_zero.nvim_lua_ls()
+            require('lspconfig').lua_ls.setup(lua_opts)
+        end,
+    }
+})
+
+local cmp = require('cmp')
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
+require('luasnip.loaders.from_vscode').lazy_load()
+
 cmp.setup({
     sources = {
         { name = 'path' },
         { name = 'nvim_lsp', keyword_length = 3, group_index = 0, max_item_count = 50 },
+        { name = 'nvim_lua' },
         { name = 'luasnip',  keyword_length = 2 },
         { name = 'buffer',   keyword_length = 3 },
-    }
+    },
+    formatting = lsp_zero.cmp_format(),
+    mapping = cmp.mapping.preset.insert({
+        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<Tab>'] = nil,
+        ['<S-Tab'] = nil
+    }),
 })
+
+cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
+)
 
 cmp.setup.filetype('norg', {
     sources = cmp.config.sources({})
 })
-
-lsp.setup()
 
 vim.diagnostic.config({
     virtual_text = true

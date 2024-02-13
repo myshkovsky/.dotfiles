@@ -71,7 +71,7 @@ require('lazy').setup({
     'tpope/vim-fugitive',
     {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v1.x',
+        branch = 'v3.x',
         dependencies = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' },
