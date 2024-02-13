@@ -12,6 +12,7 @@ vim.opt.wrap = false
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.cmd([[set ignorecase smartcase]])
 
 vim.opt.termguicolors = true
 
