@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 
 wezterm.on('gui-startup', function(cmd)
-	local tab, pane, window = wezterm.mux.spawn_window(cmd or
+	wezterm.mux.spawn_window(cmd or
 		{position={x=1800,y=40}}
 	)
 end)
@@ -13,7 +13,7 @@ if wezterm.config_builder then
 end
 
 config.default_prog = {
-	'powershell'
+	'pwsh'
 }
 
 config.default_cursor_style = 'BlinkingBlock'
@@ -25,7 +25,7 @@ config.initial_rows = 40
 config.initial_cols = 90
 
 config.window_padding = {
-  left = 2,
+  left = 0,
   right = 0,
   top = 0,
   bottom = 0,
@@ -37,7 +37,6 @@ config.font = wezterm.font {
 }
 
 config.colors = {
-	background = '#1d1f21',
     cursor_bg = 'white',
     cursor_fg = 'black',
     cursor_border = 'white',
