@@ -5,6 +5,7 @@ README.md
 configstore
 joplin-desktop
 scdl
+*.ps1
 
 # Neovim
 lazy-lock.json
