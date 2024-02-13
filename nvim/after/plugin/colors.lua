@@ -1,3 +1,4 @@
+--[[
 local colors = require("onedarkpro.helpers").get_preloaded_colors()
 
 require('onedarkpro').setup({
@@ -14,9 +15,9 @@ require('onedarkpro').setup({
         ['@variable.member.go'] = { link = '@property' },
         -- Lua
         ['@lsp.type.property.lua'] = { link = '@variable.member' },
-        ['@lsp.typemod.function.defaultLibrary.lua'] = { link = '@keyword.lua' },
         ['@keyword.operator.lua'] = { link = '@keyword.lua' },
     },
 })
+]]--
 
-vim.cmd.colorscheme("onedark")
+vim.cmd.colorscheme("oxocarbon")

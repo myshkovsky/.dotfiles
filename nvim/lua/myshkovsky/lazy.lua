@@ -14,10 +14,8 @@ vim.g.mapleader = " "
 
 require('lazy').setup({
     -- Colorschemes
-    {
-        "olimorris/onedarkpro.nvim",
-        priority = 1000
-    },
+    "nyoom-engineering/oxocarbon.nvim",
+    "olivercederborg/poimandres.nvim",
     "rebelot/kanagawa.nvim",
     -- Plugins
     {
