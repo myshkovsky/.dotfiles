@@ -14,24 +14,17 @@ vim.g.mapleader = " "
 
 require('lazy').setup({
     -- Colorschemes
-    "nyoom-engineering/oxocarbon.nvim",
-    "rebelot/kanagawa.nvim",
+    {
+        "nyoom-engineering/oxocarbon.nvim",
+        lazy = false,
+        priority = 1000
+    },
     {
         "folke/tokyonight.nvim",
-        config = function()
-            require("tokyonight").setup({
-                style = "storm",
-                transparent = false,
-                terminal_colors = true,
-                styles = {
-                    comments = { italic = false },
-                    keywords = { italic = false },
-                    sidebars = "dark",
-                    floats = "dark",
-                },
-            })
-        end
+        lazy = false,
+        priority = 1000
     },
+    "rebelot/kanagawa.nvim",
     -- Plugins
     {
         "nvim-neorg/neorg",
