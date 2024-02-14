@@ -15,8 +15,23 @@ vim.g.mapleader = " "
 require('lazy').setup({
     -- Colorschemes
     "nyoom-engineering/oxocarbon.nvim",
-    "olivercederborg/poimandres.nvim",
     "rebelot/kanagawa.nvim",
+    {
+        "folke/tokyonight.nvim",
+        config = function()
+            require("tokyonight").setup({
+                style = "storm",
+                transparent = false,
+                terminal_colors = true,
+                styles = {
+                    comments = { italic = false },
+                    keywords = { italic = false },
+                    sidebars = "dark",
+                    floats = "dark",
+                },
+            })
+        end
+    },
     -- Plugins
     {
         "nvim-neorg/neorg",
