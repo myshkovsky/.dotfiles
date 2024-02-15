@@ -4,8 +4,13 @@ local function setTheme(theme)
 end
 
 return {
+    {
+        "nyoom-engineering/oxocarbon.nvim",
+        config = function()
+            setTheme()
+        end
+    },
     { "rebelot/kanagawa.nvim" },
-    { "nyoom-engineering/oxocarbon.nvim" },
     {
         "folke/tokyonight.nvim",
         config = function()
@@ -20,7 +25,6 @@ return {
                     floats = "dark",
                 },
             })
-            setTheme()
         end
     }
 }
