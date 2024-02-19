@@ -5,27 +5,12 @@ return {
         require 'nvim-treesitter.configs'.setup {
             ensure_installed = {
                 -- Languages
-                "javascript",
-                "typescript",
-                "lua",
-                "query",
-                "go",
-                "gomod",
-                "python",
+                "javascript", "typescript", "lua", "query",
+                "go", "gomod", "python",
                 -- Web
-                "css",
-                "scss",
-                "svelte",
-                "tsx",
-                -- Tools
-                "regex",
-                "bash",
+                "css", "svelte", "tsx",
                 -- Vim & notes
-                "vim",
-                "vimdoc",
-                "norg",
-                "markdown",
-                "markdown_inline"
+                "vimdoc", "norg", "markdown", "markdown_inline"
             },
             sync_install = false,
             auto_install = true,
