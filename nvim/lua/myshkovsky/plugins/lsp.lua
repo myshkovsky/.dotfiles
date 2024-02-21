@@ -44,7 +44,7 @@ return {
                 'sqlls',
                 'gopls',
                 'svelte',
-                'pyright'
+                'ruff_lsp'
             },
             handlers = {
                 lsp_zero.default_setup,

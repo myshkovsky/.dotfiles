@@ -30,3 +30,6 @@ vim.opt.isfname = "@,48-57,/,\\,.,-,_,+,,,#,$,%,:,@-@,!,~,="
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
+
+-- Python3 provider
+vim.g.python3_host_prog = os.getenv("HOMEPATH") .. "/.local/venv/nvim/Scripts/python"
