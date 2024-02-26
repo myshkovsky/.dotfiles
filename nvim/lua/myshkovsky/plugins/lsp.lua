@@ -44,6 +44,7 @@ return {
                 'sqlls',
                 'gopls',
                 'svelte',
+                'pyright',
                 'ruff_lsp'
             },
             handlers = {
