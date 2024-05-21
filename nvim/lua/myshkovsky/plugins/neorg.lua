@@ -1,10 +1,8 @@
 return {
     "nvim-neorg/neorg",
+    tag = "v7.0.0",
+    dependencies = { "nvim-lua/plenary.nvim" },
     build = ":Neorg sync-parsers",
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-treesitter/nvim-treesitter"
-    },
     lazy = true,
     ft = "norg",
     cmd = "Neorg",
@@ -26,7 +24,7 @@ return {
                 ["core.dirman"] = {
                     config = {
                         workspaces = {
-                            notes = "%HOMEPATH%/notes",
+                            notes = "$HOME/notes",
                         },
                     },
                 },

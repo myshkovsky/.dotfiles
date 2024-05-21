@@ -7,6 +7,9 @@ joplin-desktop
 scdl
 *.ps1
 
+# Linux stuff
+envman
+
 # Neovim
 lazy-lock.json
 
