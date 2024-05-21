@@ -44,6 +44,7 @@ return {
                 'sqlls',
                 'gopls',
                 'svelte',
+                'ruff',
                 'ruff_lsp',
                 'pyright',
             },
