@@ -23,6 +23,7 @@ config.cursor_blink_ease_out = 'Constant'
 config.cursor_blink_rate = 500
 config.initial_rows = 40
 config.initial_cols = 90
+config.audible_bell = "Disabled"
 
 config.window_padding = {
   left = 0,
