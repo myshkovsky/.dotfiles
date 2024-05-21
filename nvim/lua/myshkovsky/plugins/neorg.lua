@@ -1,18 +1,17 @@
 return {
     "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-treesitter/nvim-treesitter"
-    },
+    tag = "v7.0.0",
+    dependencies = { "nvim-lua/plenary.nvim" },
     lazy = true,
     ft = "norg",
     cmd = "Neorg",
+    build = ":Neorg sync-parsers",
     config = function()
         require("neorg").setup {
             load = {
                 ["core.defaults"] = {},
                 ["core.integrations.treesitter"] = {},
+                ["core.export"] = {},
                 ["core.keybinds"] = {
                     config = {
                         neorg_leader = " "
@@ -26,7 +25,7 @@ return {
                 ["core.dirman"] = {
                     config = {
                         workspaces = {
-                            notes = "%HOMEPATH%/notes",
+                            notes = "$HOME/notes",
                         },
                     },
                 },
