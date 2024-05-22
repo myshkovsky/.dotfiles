@@ -7,20 +7,16 @@ wezterm.on('gui-startup', function(cmd)
 end)
 
 local config = {}
-
 if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
 config.default_prog = {
-	'pwsh'
+	'pwsh',
+    '-nologo',
 }
 
-config.default_cursor_style = 'BlinkingBlock'
-config.animation_fps = 1
-config.cursor_blink_ease_in = 'Constant'
-config.cursor_blink_ease_out = 'Constant'
-config.cursor_blink_rate = 500
+config.default_cursor_style = 'SteadyBlock'
 config.initial_rows = 40
 config.initial_cols = 90
 config.audible_bell = "Disabled"
@@ -39,8 +35,6 @@ config.font = wezterm.font {
 
 config.colors = {
     cursor_bg = 'white',
-    cursor_fg = 'black',
-    cursor_border = 'white',
 }
 
 return config
